@@ -1,0 +1,17 @@
+WITH p(n, display) 
+AS (
+    SELECT 
+    20,
+       cast(REPLICATE('* ', 20) as text)
+    UNION ALL
+    SELECT   
+    n - 1,
+       cast(REPLICATE('* ', n - 1) as text)
+    FROM    
+        p
+    WHERE n > 1
+)
+SELECT 
+    display
+FROM 
+    p;
